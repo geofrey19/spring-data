@@ -14,7 +14,7 @@
     <!-- Ativa recursos automáticos no Spring como Injeção de Dependecia por anotações -->
 	<context:annotation-config />
 	<!-- ler o modelo identificar as classes persistences e criar as tabelas -->
-	<context:component-scan base-package="projeto.spring.data.aula.model" />
+	<context:component-scan base-package="spring.data.aula.model" />
 
 
      <!-- Define o DataSource e a conexão com o banco de dados -->
@@ -46,5 +46,5 @@
      </bean>
 
      <!-- Ativa os recursos para os Repository de persistência-->
-	<jpa:repositories base-package="projeto.spring.data.aula.dao" />
+	<jpa:repositories base-package="spring.data.aula.dao" />
 </beans>
