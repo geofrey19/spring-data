@@ -36,7 +36,7 @@
       	 	   <property name="generateDdl" value="true"/> <!-- Gerar as tabelas no banco -->
       	 	</bean>
       </property>
-      <property name="persistenceUnitName" value="projeto-spring-data-aula"/>
+      <property name="persistenceUnitName" value="spring-data-aula"/>
      </bean>
      
      <!-- Ativa o controle transacional -->
