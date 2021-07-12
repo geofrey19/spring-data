@@ -52,4 +52,13 @@ public class AppStripngDataTest {
 			System.out.println("--------------------------------------------------");
 		}
 	}
+	
+	@Test
+	public void testeUpdate() {
+		Optional<UsuarioSpringData> usuarioSpringData = interfaceSpringDataUser.findById(4L);
+		UsuarioSpringData data = usuarioSpringData.get();
+		
+		data.setNome("Hilton");
+		interfaceSpringDataUser.save(data);
+	}
 }
