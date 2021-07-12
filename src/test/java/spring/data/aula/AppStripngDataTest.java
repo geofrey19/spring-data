@@ -94,4 +94,9 @@ public class AppStripngDataTest {
 	public void testeDeletePorNome() {
 		interfaceSpringDataUser.deletePorNome("Hilton");
 	}
+	
+	@Test
+	public 	void testeUpdatePorNome() {
+		interfaceSpringDataUser.updatePorNome("geofrey19@gmail.com", "George");
+	}
 }
