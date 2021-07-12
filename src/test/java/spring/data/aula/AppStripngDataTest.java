@@ -80,4 +80,13 @@ public class AppStripngDataTest {
 			System.out.println("--------------------------------------------------");
 		}
 	}
+	
+	@Test
+	public void testeConsultaNomeParam() {
+		UsuarioSpringData usuarioSpringData = interfaceSpringDataUser.buscaPorNomeParam("Hilton");
+			System.out.println(usuarioSpringData.getNome());
+			System.out.println(usuarioSpringData.getLogin());
+			System.out.println(usuarioSpringData.getEmail());
+			System.out.println(usuarioSpringData.getId());
+		}
 }
