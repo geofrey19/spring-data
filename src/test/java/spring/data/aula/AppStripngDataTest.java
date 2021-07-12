@@ -10,6 +10,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import spring.data.aula.dao.InterfaceSpringDataUser;
+import spring.data.aula.dao.InterfaceTelefone;
+import spring.data.aula.model.Telefone;
 import spring.data.aula.model.UsuarioSpringData;
 
 //Integrar o spring com o Junit
@@ -22,23 +24,31 @@ public class AppStripngDataTest {
 	@Autowired
 	private InterfaceSpringDataUser interfaceSpringDataUser;
 	
+	@Autowired
+	private InterfaceTelefone interfaceTelefone;
+	
 	@Test
 	public void testeInsert() {
 		UsuarioSpringData usuarioSpringData = new UsuarioSpringData();
-		usuarioSpringData.setEmail("geodfrey@gmail.com");
+		usuarioSpringData.setEmail("geofrey@gmail.com");
 		usuarioSpringData.setIdade(19);
-		usuarioSpringData.setLogin("teste 123");
+		usuarioSpringData.setLogin("teste 1234");
 		usuarioSpringData.setSenha("123");
-		usuarioSpringData.setNome("Frey");
+		usuarioSpringData.setNome("Hilton");
 		
 		interfaceSpringDataUser.save(usuarioSpringData);
 	}
 	
 	@Test
 	public void testeConsulta() {
-		Optional<UsuarioSpringData> usuarioSpringData = interfaceSpringDataUser.findById(5L);
+		Optional<UsuarioSpringData> usuarioSpringData = interfaceSpringDataUser.findById(1L);
 		System.out.println(usuarioSpringData.get().getNome());
 		System.out.println(usuarioSpringData.get().getLogin());
+		
+		for(Telefone telefone : usuarioSpringData.get().getTelefones()) {
+			System.out.println(telefone.getNumero());
+			System.out.println(telefone.getTipo());
+		}
 	}
 	
 	@Test
@@ -97,6 +107,19 @@ public class AppStripngDataTest {
 	
 	@Test
 	public 	void testeUpdatePorNome() {
-		interfaceSpringDataUser.updatePorNome("geofrey19@gmail.com", "George");
+		interfaceSpringDataUser.updatePorNome("geofrey1982@hotmail.com", "Frey");
+	}
+	
+	@Test
+	public void testeSetTelefone() {
+		
+		Optional<UsuarioSpringData> usuarioSpringData = interfaceSpringDataUser.findById(1L);
+				
+		Telefone telefone = new Telefone();
+		telefone.setTipo("Casa");
+		telefone.setNumero("(71)3233-5565");
+		telefone.setUsuario(usuarioSpringData.get());
+		
+		interfaceTelefone.save(telefone);
 	}
 }
