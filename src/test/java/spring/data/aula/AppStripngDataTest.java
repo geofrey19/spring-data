@@ -88,5 +88,10 @@ public class AppStripngDataTest {
 			System.out.println(usuarioSpringData.getLogin());
 			System.out.println(usuarioSpringData.getEmail());
 			System.out.println(usuarioSpringData.getId());
-		}
+	}
+	
+	@Test
+	public void testeDeletePorNome() {
+		interfaceSpringDataUser.deletePorNome("Hilton");
+	}
 }
