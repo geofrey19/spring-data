@@ -61,4 +61,10 @@ public class AppStripngDataTest {
 		data.setNome("Hilton");
 		interfaceSpringDataUser.save(data);
 	}
+	
+	@Test
+	public void testeDelete() {
+		Optional<UsuarioSpringData> usuarioSpringData = interfaceSpringDataUser.findById(2L);
+		interfaceSpringDataUser.delete(usuarioSpringData.get());
+	}
 }
