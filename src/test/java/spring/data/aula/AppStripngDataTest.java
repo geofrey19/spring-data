@@ -7,6 +7,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import spring.data.aula.dao.InterfaceSpringDataUser;
+import spring.data.aula.model.UsuarioSpringData;
 
 //Integrar o spring com o Junit
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -19,7 +20,19 @@ public class AppStripngDataTest {
 	private InterfaceSpringDataUser interfaceSpringDataUser;
 	
 	@Test
-	public void testInsert() {
+	public void testeInsert() {
+		UsuarioSpringData usuarioSpringData = new UsuarioSpringData();
+		usuarioSpringData.setEmail("geodfrey@gmail.com");
+		usuarioSpringData.setIdade(19);
+		usuarioSpringData.setLogin("teste 123");
+		usuarioSpringData.setSenha("123");
+		usuarioSpringData.setNome("Frey");
+		
+		interfaceSpringDataUser.save(usuarioSpringData);
+	}
+	
+	@Test
+	public void testeConsulta() {
 		System.out.println("Iniciou o spring com sucesso");
 	}
 }
